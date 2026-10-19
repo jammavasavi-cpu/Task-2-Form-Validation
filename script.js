@@ -7,15 +7,13 @@ document.getElementById("signupForm").addEventListener("submit", function(e) {
     let message = document.getElementById("message");
 
     if (name === "" || email === "" || password === "") {
-        message.textContent = "❌ Please fill all fields";
+        message.textContent = "Please fill all fields";
         message.style.color = "red";
-    } 
-    else if (!email.includes("@") || !email.includes(".")) {
-        message.textContent = "❌ Enter a valid email";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        message.textContent = "Enter a valid email";
         message.style.color = "red";
-    } 
-    else {
-        message.textContent = "✅ Registration successful!";
+    } else {
+        message.textContent = "Registration successful!";
         message.style.color = "green";
     }
 });
